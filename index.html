@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bmi Calculate</title>
+
+      <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .result {
+      padding: 40px;
+      border-radius: 12px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .underweight {
+      background-color: #e74c3c; /* red */
+    }
+
+    .normal {
+      background-color: #2ecc71; /* green */
+    }
+
+    .overweight {
+      background-color: #e74c3c; /* red */
+    }
+
+    </style>
+</head>
+
+<body>
+    <h1>BMI : <span id="bmiResult" class="result">value...</span></h1>
+
+    <script>
+
+        let height = prompt("Your height in CM:");
+        let weight = prompt("Your weight in KG:");
+
+        height = parseFloat(height);
+        weight = parseFloat(weight);
+
+        const bmi = weight / ((height / 100) ** 2);
+        const result = document.getElementById("bmiResult");
+
+        if (bmi < 18.5) {
+            result.textContent = "Underweight";
+            result.classList.add("underweight");
+        } else if (bmi >= 18.5 && bmi <= 24.9) {
+            result.textContent = "Normal weight";
+            result.classList.add("normal");
+        } else if (bmi >= 25) {
+            result.textContent = "Overweight";
+            result.classList.add("overweight");
+        } else {
+            result.textContent = "Invalid input";
+        }
+
+    </script>
+
+</body>
+
+</html>
