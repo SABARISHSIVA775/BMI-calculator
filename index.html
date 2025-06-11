@@ -30,15 +30,19 @@
     }
 
     .underweight {
-      background-color: #e74c3c; /* red */
+      background-color: #e74c3c; 
     }
 
     .normal {
-      background-color: #2ecc71; /* green */
+      background-color: #2ecc71; 
     }
 
     .overweight {
-      background-color: #e74c3c; /* red */
+      background-color: #e74c3c; 
+    }
+
+    .error{
+      background-color: hsl(59, 78%, 57%);
     }
 
     </style>
@@ -56,19 +60,24 @@
         weight = parseFloat(weight);
 
         const bmi = weight / ((height / 100) ** 2);
+
         const result = document.getElementById("bmiResult");
 
+        const roundedBmi = bmi.toFixed(1);
+
         if (bmi < 18.5) {
-            result.textContent = "Underweight";
+            result.textContent = (`Your BMI is ${roundedBmi} - Underweight`) ;
             result.classList.add("underweight");
+
         } else if (bmi >= 18.5 && bmi <= 24.9) {
-            result.textContent = "Normal weight";
+            result.textContent = (`Your BMI is ${roundedBmi} - Normalweight`) ;;
             result.classList.add("normal");
         } else if (bmi >= 25) {
-            result.textContent = "Overweight";
+            result.textContent = (`Your BMI is ${roundedBmi} - Overweight`) ;;
             result.classList.add("overweight");
         } else {
-            result.textContent = "Invalid input";
+            result.textContent = "Invalid input , Enter Number only";
+            result.classList.add("error");
         }
 
     </script>
